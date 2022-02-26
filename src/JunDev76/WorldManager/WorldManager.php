@@ -42,6 +42,11 @@ class WorldManager extends PluginBase{
     }
 
     protected function moveWorld(Player $player, string $worldName) : void{
+        if(!realpath($this->getServer()->getDataPath() . 'worlds/' . $worldName)){
+            $player->sendMessage('없는 월드');
+            return;
+        }
+
         $world = $this->getServer()->getWorldManager()->getWorldByName($worldName);
         if($world === null){
             $this->getServer()->getWorldManager()->loadWorld($worldName, true);
