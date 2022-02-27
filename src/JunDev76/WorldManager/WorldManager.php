@@ -35,6 +35,7 @@ class WorldManager extends PluginBase{
 
     protected function onLoad() : void{
         GeneratorManager::getInstance()->addGenerator(VoidGenerator::class, 'void', fn() => null);
+        GeneratorManager::getInstance()->addGenerator(VoidGenerator::class, 'skyblock', fn() => null);
     }
 
     protected function onEnable() : void{
